@@ -12,7 +12,6 @@ import {
   Flex,
   Heading,
   Image,
-  ListIcon,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -53,6 +52,7 @@ export default function Page() {
       <Box
         boxSize="100px"
         w="100%"
+        maxW="100%"
         bg="purple.300"
         display="flex"
         p="20"
@@ -105,6 +105,7 @@ export default function Page() {
       <VStack
         bg="red.400"
         w="100%"
+        maxW="100%"
         h={1000}
         m="3"
         gap="5"
