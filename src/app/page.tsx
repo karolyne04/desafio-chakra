@@ -27,8 +27,9 @@ import React from "react";
 import { BsInstagram } from "react-icons/bs";
 import { useMediaQuery } from "@chakra-ui/react";
 import "./styles/styles.css";
-
+import "./styles/globals.css"
 export default function Page() {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpen2,
@@ -43,6 +44,8 @@ export default function Page() {
 
   return (
     <Box
+      w="100%"
+      maxW="100%"
       display="flex"
       flexDirection="column"
       gap="8"
@@ -52,27 +55,27 @@ export default function Page() {
       <Box
         boxSize="100px"
         w="100%"
-        maxW="100%"
         bg="purple.300"
         display="flex"
-        p="20"
+        p={["10px", "10px", "10px", "10px", "20px"]}
         alignItems="center"
         justifyContent="space-between"
-        className="container-nav"
       >
         <Image
           src="../logo.jpeg"
           alt="logo"
-          boxSize="100px"
+          maxH={["60px", "70px", "70px","80px","100px", "100px"]}
+          maxW={["60px","70px", "70px", "80px","100px", "100px"]}
+          p={["6px", "3px", "0", "0","0", "0"]}
+          // boxSize="100px"
           borderRadius="full"
         />
-        <Breadcrumb display="flex" color="white" className="breadcrumb">
+        <Breadcrumb display="flex" color="white" className="breadcrumb" >
           <BreadcrumbItem>
             <BreadcrumbLink
               href="#sobre"
               _focus={{ color: "orange.300" }}
-              fontSize="2xl"
-              className="breadcrumb-item"
+              fontSize={["sm","md", "xl", "2xl", "2xl"]}
             >
               Sobre
             </BreadcrumbLink>
@@ -82,8 +85,7 @@ export default function Page() {
             <BreadcrumbLink
               href="#serviços"
               _focus={{ color: "orange.300" }}
-              fontSize="2xl"
-              className="breadcrumb-item"
+              fontSize={["sm","md", "xl", "2xl", "2xl"]}
             >
               Serviços
             </BreadcrumbLink>
@@ -93,8 +95,7 @@ export default function Page() {
             <BreadcrumbLink
               href="#contato"
               _focus={{ color: "orange.300" }}
-              fontSize="2xl"
-              className="breadcrumb-item"
+              fontSize={["sm","md", "xl", "2xl", "2xl"]}
             >
               Contato
             </BreadcrumbLink>
@@ -105,35 +106,31 @@ export default function Page() {
       <VStack
         bg="red.400"
         w="100%"
-        maxW="100%"
+        // maxW="100%"
         h={1000}
-        m="3"
         gap="5"
-        p="5"
-        
       >
-        
           <Center
-            className={"container"}
             color="white"
-            p="10"
+             p="10"
             display="flex"
             alignItems="center"
             justifyContent="center"
+            flexDirection={["column", "row"]}
             gap="5"
           >
             <Box
-              p="3"
+              // p="3"
               display="flex"
               flexDirection="column"
               id="sobre"
-              className={"text-container"}
             >
-              <Heading color="white" display="flex" alignItems="center">
+              <Heading color="white" display="flex" fontSize={["lg","xl", "2xl", "3xl", "4xl", "5xl", "5xl"]} alignItems="center">
                 Sobre
               </Heading>
               <br></br>
-              <Text fontSize="2xl" textAlign="justify" pr="5" className="text">
+              <Text fontSize={["sm", "md","lg", "xl", "2xl", "2xl"]} textAlign="justify">
+              
                 Um mundo onde a busca por experiências únicas e deliciosas é
                 constante, nasce o Gelato Invocado, muito mais que uma simples
                 gelateria. Somos uma jornada de sabores, um convite à celebração
@@ -155,15 +152,17 @@ export default function Page() {
                 nossa família.
               </Text>
             </Box>
-            <Box boxSize="550px" display="flex"  alignItems="center">
+            {/* <Box boxSize="550px" display="flex"  alignItems="center"> */}
               <Image
                 src="../logo.jpeg"
                 alt=""
-                boxSize="400px"
+                maxH={["100px","200","250px", "300px", "350px", "400px"]}
+                maxW={["100px","200px","250px", "300px", "350px", "400px"]}
+                // boxSize="400px"
                 borderRadius="full"
                 className="image"
               />
-            </Box>
+            {/* </Box> */}
           </Center>
         
       </VStack>
@@ -176,10 +175,11 @@ export default function Page() {
         justifyContent="center"
         gap="5"
         id="serviços"
-      >
-        <Heading color="white">Serviços</Heading>
+        >
+        <Heading color="white" fontSize={["xl", "2xl","3xl", "4xl", "5xl", "5xl" ]}>Serviços</Heading>
         <Container
           display="flex"
+           flexDirection={["column", "row"]}
           justifyContent="center"
           alignItems="center"
           gap="5"
@@ -188,7 +188,9 @@ export default function Page() {
         >
           <Box
             className="card-servico"
-            boxSize="500px"
+             boxSize="500px"
+            // maxW={["200px", "250px", "300px", "400px", "450px", "500px"]}
+            // maxH={["200px", "250px", "300px", "400px", "450px", "500px"]}
             boxShadow="base"
             _hover={{ boxShadow: "dark-lg" }}
             borderRadius="md"
@@ -227,13 +229,14 @@ export default function Page() {
             </Center>
           </Box>
           <Box
-            boxSize="500px"
+             boxSize="500px"
+            // maxW={["200px", "250px", "300px", "400px", "450px", "500px"]}
+            // maxH={["200px", "250px", "300px", "400px", "450px", "500px"]}
             boxShadow="base"
             _hover={{ boxShadow: "dark-lg" }}
             borderRadius="md"
             onClick={onOpen2}
             className="card-servico"
-            maxWidth={{ base: "100%", lg: "33.33%" }}
           >
             <Modal
               blockScrollOnMount={false}
@@ -252,7 +255,7 @@ export default function Page() {
 
                 <ModalFooter>
                   <Button colorScheme="purple" mr={3} onClick={onClose2}>
-                    Close
+                    Fechar
                   </Button>
                 </ModalFooter>
               </ModalContent>
@@ -269,12 +272,14 @@ export default function Page() {
           </Box>
           <Box
             boxSize="500px"
+            // maxW={["200px", "250px", "300px", "400px", "450px", "500px"]}
+            // maxH={["200px", "250px", "300px", "400px", "450px", "500px"]}
             boxShadow="base"
             _hover={{ boxShadow: "dark-lg" }}
             borderRadius="md"
             onClick={onOpen3}
             className="card-servico"
-            maxWidth={{ base: "100%", lg: "33.33%" }}
+            
           >
             <Modal
               blockScrollOnMount={false}
@@ -305,9 +310,8 @@ export default function Page() {
 
                 <ModalFooter>
                   <Button colorScheme="purple" mr={3} onClick={onClose3}>
-                    Close
+                    Fechar
                   </Button>
-                  {/* <Button variant='ghost'>Secondary Action</Button> */}
                 </ModalFooter>
               </ModalContent>
             </Modal>
@@ -339,7 +343,7 @@ export default function Page() {
           gap="5"
           id="contato"
         >
-          <Heading color="white" display="flex" alignItems="center">
+          <Heading color="white" display="flex" alignItems="center" fontSize={["2xl", "3xl", "4xl", "5xl", "5xl" ]} justifyContent="center">
             Contato
           </Heading>
           <Center display="flex" gap="10" flexDirection="column">
@@ -364,7 +368,7 @@ export default function Page() {
               display="flex"
               justifyContent="center"
               _hover={{ color: "orage.300", boxShadow: "dark-lg" }}
-              fontSize="lg"
+              fontSize={["md","lg", "lg", "lg"]}
               boxShadow="base"
             >
               Faça seu pedido
